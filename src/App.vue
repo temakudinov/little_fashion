@@ -1,30 +1,41 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <component-header></component-header>
+
+  <router-view></router-view>
+
+  <component-footer></component-footer>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import ComponentHeader from "@/components/ComponentHeader.vue";
+import ComponentFooter from "@/components/ComponentFooter.vue";
 
-nav {
-  padding: 30px;
-}
+export default {
+  components: {
+    ComponentHeader,
+    ComponentFooter,
+  },
+  methods: {
+    setActiveNavLink() {
+      const currentUrlPage = this.$route.path;
+      this.$store.state.navLinks.forEach((itemNav) => {
+        if (itemNav.url === currentUrlPage) {
+          itemNav.activeLink = true;
+        } else {
+          itemNav.activeLink = false;
+        }
+      });
+    },
+  },
+  mounted() {
+    this.setActiveNavLink();
+  },
+  watch: {
+    $route(to, from) {
+      this.setActiveNavLink(); 
+    },
+  },
+};
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
