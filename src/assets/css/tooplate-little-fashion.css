@@ -952,6 +952,9 @@ button:focus:not(:focus-visible) {
   left: 0;
   margin: 20px;
 }
+.sign-in-form {
+  padding: 2rem 0 4rem;
+}
 
 .product-info {
   padding: 30px 20px;

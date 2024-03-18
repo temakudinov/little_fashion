@@ -19,10 +19,9 @@
               this Little Fashion by Tooplate.
             </p>
 
-            <a href="products.html" class="custom-link">
-              Explore Products
-              <i class="bi-arrow-right ms-2"></i>
-            </a>
+            <router-link :to="'/products'" class="custom-link"
+              >Explore Products <i class="bi-arrow-right ms-2"></i
+            ></router-link>
           </div>
         </div>
       </div>

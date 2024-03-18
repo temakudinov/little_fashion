@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-3 col-10 me-auto mb-4">
           <h4 class="text-white mb-3">
-            <a href="index.html">Little</a> Fashion
+            <router-link :to="'/'">Little</router-link> Fashion
           </h4>
           <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">
             Copyright © 2022 <strong>Little Fashion</strong>
@@ -20,24 +20,12 @@
           <h5 class="text-white mb-3">Sitemap</h5>
 
           <ul class="footer-menu d-flex flex-wrap">
-            <li class="footer-menu-item">
-              <a href="about.html" class="footer-menu-link">Story</a>
-            </li>
-
-            <li class="footer-menu-item">
-              <a href="#" class="footer-menu-link">Products</a>
-            </li>
-
-            <li class="footer-menu-item">
-              <a href="#" class="footer-menu-link">Privacy policy</a>
-            </li>
-
-            <li class="footer-menu-item">
-              <a href="#" class="footer-menu-link">FAQs</a>
-            </li>
-
-            <li class="footer-menu-item">
-              <a href="#" class="footer-menu-link">Contact</a>
+            <li
+              class="footer-menu-item"
+              v-for="link of $store.state.navFooterLinks" 
+              :key="link"
+            >
+              <router-link class="footer-menu-link" :to="link.url">{{ link.name }}</router-link>
             </li>
           </ul>
         </div>
