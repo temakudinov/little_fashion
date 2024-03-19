@@ -11,6 +11,12 @@ import ComponentHeader from "@/components/ComponentHeader.vue";
 import ComponentFooter from "@/components/ComponentFooter.vue";
 
 export default {
+  created() {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      this.$store.commit("login");
+    }
+  },
   components: {
     ComponentHeader,
     ComponentFooter,
@@ -32,7 +38,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      this.setActiveNavLink(); 
+      this.setActiveNavLink();
     },
   },
 };

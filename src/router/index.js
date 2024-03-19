@@ -7,7 +7,6 @@ import ProductsPage from "@/pages/ProductsPage.vue";
 import SignInPage from "@/pages/SignInPage.vue";
 import SignUpPage from "@/pages/SignUpPage.vue";
 import ProductDetailPage from "@/pages/ProductDetailPage.vue";
-import PrivateOfficePage from "@/pages/PrivateOfficePage.vue";
 
 
 const routes = [
@@ -43,10 +42,6 @@ const routes = [
         path: '/product-detail',
         component: ProductDetailPage
     },   
-    {
-        path: '/private-office',
-        component: PrivateOfficePage
-    }, 
 ]
 
 const router = createRouter({
