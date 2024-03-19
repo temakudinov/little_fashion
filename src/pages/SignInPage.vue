@@ -70,17 +70,18 @@ export default {
       const loginUser = this.loginLogin;
       const passwordUser = this.loginPassword;
       const storedUserData = JSON.parse(localStorage.getItem("users"));
-      let userFound = false;
 
-      storedUserData.forEach((user) => {
-        if (user.nameUser === loginUser && user.passwordUser === passwordUser) {
-          console.log("Вы вошли");
-          userFound = true;
-          this.$router.push("/");
-          return;
-        }
-      });
-      if (!userFound) {
+      const user = storedUserData.find(
+        (user) =>
+          user.nameUser === loginUser && user.passwordUser === passwordUser
+      );
+
+      if (user) {
+        console.log("Вы вошли как " + user.nameUser);
+        localStorage.setItem("loggedInUser", user.nameUser);
+        this.$store.commit("login");
+        this.$router.push("/");
+      } else {
         console.log("Вы не вошли");
         this.loginLogin = "";
         this.loginPassword = "";

@@ -137,5 +137,14 @@ export default createStore({
         price: "$45",
       },
     ],
+    isAuthenticated: false,
   },
+  mutations: {
+    login(state) {
+      state.isAuthenticated = true;
+    },
+    logout(state) {
+      state.isAuthenticated = false;
+    } 
+  }
 });

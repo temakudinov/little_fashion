@@ -19,7 +19,7 @@
       </router-link>
 
       <div class="d-lg-none">
-        <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+        <a href="sign-in.html" class="bi-person custom-icon me-3">Войти</a>
 
         <a href="product-detail.html" class="bi-bag custom-icon"></a>
       </div>
@@ -29,7 +29,9 @@
         <component-header-nav></component-header-nav>
 
         <div class="d-none d-lg-block">
-          <router-link :to="'/sign-in'" class="bi-person custom-icon me-3"></router-link>
+          <router-link :to="'/'" class="me-3" @click="logoutUser" v-if="$store.state.isAuthenticated">Выйти</router-link>
+          <router-link :to="'/sign-in'" class="me-3" v-else>Войти</router-link>
+          
 
           <router-link :to="'/products'" class="bi-bag custom-icon"></router-link>
         </div>
@@ -44,6 +46,13 @@ import ComponentHeaderNav from "./ComponentHeaderNav.vue";
 export default {
   components: {
     ComponentHeaderNav
+  },
+  methods: {
+    logoutUser() {
+      localStorage.removeItem('loggedInUser');
+      console.log('Вы вышли из аккаунта!');
+      this.$store.commit('logout');
+    }
   }
 };
 </script>
