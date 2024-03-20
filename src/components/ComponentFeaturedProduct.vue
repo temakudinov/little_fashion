@@ -8,11 +8,11 @@
 
         <div
           class="col-lg-4 col-12 mb-3"
-          v-for="product of $store.state.productList"
-          :key="product"
+          v-for="(product, index) of $store.state.productList"
+          :key="index"
         >
           <div class="product-thumb">
-            <router-link :to="'/product-detail'"
+            <router-link :to="'/product-detail/' + index"
               ><img
                 :src="getImgUrl(product.srcImg)"
                 class="img-fluid product-image"
@@ -31,7 +31,7 @@
               <div>
                 <h5 class="product-title mb-0">
                   <router-link
-                    :to="'/product-detail'"
+                    :to="'/product-detail/' + index"
                     class="product-title-link"
                     >{{ product.title }}</router-link
                   >
@@ -41,8 +41,8 @@
               </div>
 
               <small class="product-price text-muted ms-auto mt-auto mb-5">{{
-                product.price
-              }}</small>
+                product.priceCurrency
+              }}{{ product.priceNum }}</small>
             </div>
           </div>
         </div>

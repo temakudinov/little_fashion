@@ -8,45 +8,45 @@ import SignInPage from "@/pages/SignInPage.vue";
 import SignUpPage from "@/pages/SignUpPage.vue";
 import ProductDetailPage from "@/pages/ProductDetailPage.vue";
 
-
 const routes = [
-    {
-        path: '/',
-        component: MainPage
-    },
-    {
-        path: '/about',
-        component: AboutPage
-    },
-    {
-        path: '/faq',
-        component: FaqsPage
-    },
-    {
-        path: '/contacts',
-        component: ContactsPage
-    },
-    {
-        path: '/products',
-        component: ProductsPage
-    },
-    {
-        path: '/sign-in',
-        component: SignInPage
-    },
-    {
-        path: '/sign-up',
-        component: SignUpPage
-    },
-    {
-        path: '/product-detail',
-        component: ProductDetailPage
-    },   
-]
+  {
+    path: "/",
+    component: MainPage,
+  },
+  {
+    path: "/about",
+    component: AboutPage,
+  },
+  {
+    path: "/faq",
+    component: FaqsPage,
+  },
+  {
+    path: "/contacts",
+    component: ContactsPage,
+  },
+  {
+    path: "/products",
+    component: ProductsPage,
+  },
+  {
+    path: "/sign-in",
+    component: SignInPage,
+  },
+  {
+    path: "/sign-up",
+    component: SignUpPage,
+  },
+  {
+    path: "/product-detail/:id",
+    name: "ProductDetail",
+    component: ProductDetailPage,
+  },
+];
 
 const router = createRouter({
-    routes,
-    history: createWebHistory(process.env.Base_URL)
-})
+  routes,
+  history: createWebHistory(process.env.Base_URL),
+});
 
 export default router;

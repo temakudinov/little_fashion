@@ -120,7 +120,6 @@ export default {
     },
     changeSlide(index) {
       this.activeSlideIndex = index;
-      console.log(this.activeSlideIndex)
     }
   },
 };
